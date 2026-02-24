@@ -1,5 +1,6 @@
 import { BarChart3, Layers, Star, TrendingUp } from 'lucide-react';
 
+import { PageHeader } from '@/components/layout/page-header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { getTemplates, getTemplateStats } from '@/features/templates/controllers/get-templates';
 import { TemplatesTable } from '@/features/templates/components/templates-table';
@@ -10,11 +11,12 @@ export default async function TemplatesPage() {
   const [templates, stats] = await Promise.all([getTemplates(), getTemplateStats()]);
 
   return (
-    <div className='flex flex-col gap-6'>
-      <div>
-        <h1 className='text-2xl font-bold tracking-tight'>Templates</h1>
-        <p className='text-sm text-muted-foreground'>User-created templates and their usage stats.</p>
-      </div>
+    <div className='space-y-6'>
+      <PageHeader
+        title='Templates'
+        description='User-created templates and their usage stats.'
+        icon={Layers}
+      />
 
       <div className='grid gap-4 sm:grid-cols-2 lg:grid-cols-4'>
         <Card>

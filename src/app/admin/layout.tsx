@@ -40,8 +40,10 @@ export default async function AdminLayout({ children }: PropsWithChildren) {
 
         {/* Page Content — overflow-hidden clips scrollbar inside rounded corners */}
         <main className='flex-1 overflow-hidden rounded-2xl bg-white/60 shadow-soft'>
-          <div className='h-full overflow-y-auto px-6 pb-6 pt-0 custom-scrollbar [scrollbar-gutter:stable]'>
-            {children}
+          <div className='h-full overflow-y-auto custom-scrollbar'>
+            <div className='px-6 pb-6'>
+              {children}
+            </div>
           </div>
         </main>
       </div>

@@ -23,9 +23,9 @@ export function PageHeader({
   return (
     <div
       className={cn(
-        'sticky top-0 z-10 -mx-6 px-6 py-3 mb-6',
-        'bg-white/90 backdrop-blur-md',
-        'shadow-[0_1px_0_0_rgba(0,0,0,0.06)]',
+        'sticky top-0 z-50 px-6 py-3 -mx-6 overflow-hidden',
+        'bg-white/60 backdrop-blur-xl',
+        'border-b border-black/[0.06]',
         className
       )}
     >
