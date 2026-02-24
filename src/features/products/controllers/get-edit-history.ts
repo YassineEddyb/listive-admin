@@ -35,7 +35,7 @@ export async function getProductEditHistory(productId: string): Promise<EditOper
     .limit(50);
 
   if (error) {
-    console.error('[getProductEditHistory] Error:', error.message);
+    // Silently skip if the table doesn't exist yet in this environment
     return [];
   }
 

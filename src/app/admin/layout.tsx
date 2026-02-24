@@ -28,20 +28,21 @@ export default async function AdminLayout({ children }: PropsWithChildren) {
   }
 
   return (
-    <div className='flex h-screen flex-col overflow-hidden bg-brand-surface'>
-      {/* Top Navigation */}
-      <AdminTopnav adminEmail={adminUser.email} />
+    <div className='flex h-screen overflow-hidden gap-4 p-4 bg-brand-surface'>
+      {/* Sidebar — full height */}
+      <div className='hidden w-64 shrink-0 lg:block'>
+        <AdminSidebar />
+      </div>
 
-      {/* Main Content Area */}
-      <div className='flex flex-1 gap-4 overflow-hidden px-4 pb-4'>
-        {/* Sidebar */}
-        <div className='hidden w-64 shrink-0 lg:block'>
-          <AdminSidebar />
-        </div>
+      {/* Right column: topnav + content */}
+      <div className='flex flex-1 flex-col overflow-hidden gap-3'>
+        <AdminTopnav adminEmail={adminUser.email} />
 
-        {/* Page Content */}
-        <main className='flex-1 overflow-y-auto rounded-2xl bg-white p-6 shadow-soft custom-scrollbar'>
-          {children}
+        {/* Page Content — overflow-hidden clips scrollbar inside rounded corners */}
+        <main className='flex-1 overflow-hidden rounded-2xl bg-white/60 shadow-soft'>
+          <div className='h-full overflow-y-auto px-6 pb-6 pt-0 custom-scrollbar [scrollbar-gutter:stable]'>
+            {children}
+          </div>
         </main>
       </div>
     </div>

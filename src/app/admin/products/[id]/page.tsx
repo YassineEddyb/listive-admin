@@ -1,4 +1,4 @@
-import { ArrowLeft, Clock, Edit, Image, Package, User } from 'lucide-react';
+import { Clock, Edit, Image, Package, User } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -35,32 +35,22 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
 
   return (
     <div className='space-y-6'>
-      <div>
-        <Link
-          href={ROUTES.products}
-          className='mb-4 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground'
-        >
-          <ArrowLeft className='h-4 w-4' />
-          Back to products
-        </Link>
-
-        <div className='flex items-start justify-between'>
-          <PageHeader
-            title={product.title || product.name || 'Untitled Product'}
-            description={`Generation: ${product.generation_status}`}
-            icon={Package}
+      <PageHeader
+        title={product.title || product.name || 'Untitled Product'}
+        description={`Generation: ${product.generation_status}`}
+        icon={Package}
+        backHref={ROUTES.products}
+      >
+        {session && (
+          <ProductActions
+            productId={product.id}
+            productName={product.title || product.name || 'Untitled'}
+            adminId={session.id}
+            generationStatus={product.generation_status}
+            failedImages={product.failed_images}
           />
-          {session && (
-            <ProductActions
-              productId={product.id}
-              productName={product.title || product.name || 'Untitled'}
-              adminId={session.id}
-              generationStatus={product.generation_status}
-              failedImages={product.failed_images}
-            />
-          )}
-        </div>
-      </div>
+        )}
+      </PageHeader>
 
       <div className='grid gap-6 lg:grid-cols-3'>
         {/* Main content */}

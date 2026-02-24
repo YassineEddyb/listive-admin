@@ -17,13 +17,15 @@ const columns: ColumnDef<ProductRow>[] = [
       const url = row.original.reference_image_thumbnail_url || row.original.reference_image_url;
       return (
         <div className='h-10 w-10 flex-shrink-0 overflow-hidden rounded-md bg-muted'>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={url}
-            alt=''
-            className='h-full w-full object-cover'
-            loading='lazy'
-          />
+          {url ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={url}
+              alt=''
+              className='h-full w-full object-cover'
+              loading='lazy'
+            />
+          ) : null}
         </div>
       );
     },

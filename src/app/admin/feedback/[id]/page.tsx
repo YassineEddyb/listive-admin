@@ -1,4 +1,4 @@
-import { ArrowLeft, Calendar, Clock, MessageSquare, Star, User } from 'lucide-react';
+import { Calendar, Clock, MessageSquare, Star, User } from 'lucide-react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -25,21 +25,12 @@ export default async function FeedbackDetailPage({ params }: FeedbackDetailPageP
 
   return (
     <div className='space-y-6'>
-      <div>
-        <Link
-          href={ROUTES.feedback}
-          className='mb-4 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground'
-        >
-          <ArrowLeft className='h-4 w-4' />
-          Back to feedback
-        </Link>
-
-        <PageHeader
-          title={feedback.title}
-          description={`Feedback ${feedback.feedback_id}`}
-          icon={MessageSquare}
-        />
-      </div>
+      <PageHeader
+        title={feedback.title}
+        description={`Feedback ${feedback.feedback_id}`}
+        icon={MessageSquare}
+        backHref={ROUTES.feedback}
+      />
 
       <div className='grid gap-6 lg:grid-cols-3'>
         {/* Main content */}

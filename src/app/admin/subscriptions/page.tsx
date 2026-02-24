@@ -10,12 +10,11 @@ export default async function SubscriptionsPage() {
 
   return (
     <div className='space-y-6'>
-      <div className='flex items-center justify-between'>
-        <PageHeader
-          title='Subscriptions'
-          description={`${subscriptions.length} total subscriptions`}
-          icon={CreditCard}
-        />
+      <PageHeader
+        title='Subscriptions'
+        description={`${subscriptions.length} total subscriptions`}
+        icon={CreditCard}
+      >
         <ExportButton
           data={subscriptions as any}
           filename='subscriptions'
@@ -29,7 +28,7 @@ export default async function SubscriptionsPage() {
             { key: 'created_at', label: 'Created' },
           ]}
         />
-      </div>
+      </PageHeader>
       <SubscriptionTable data={subscriptions} />
     </div>
   );

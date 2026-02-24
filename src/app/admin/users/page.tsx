@@ -10,8 +10,7 @@ export default async function UsersPage() {
 
   return (
     <div className='space-y-6'>
-      <div className='flex items-center justify-between'>
-        <PageHeader title='Users' description='All registered platform users' icon={Users} />
+      <PageHeader title='Users' description='All registered platform users' icon={Users}>
         <ExportButton
           data={users as any}
           filename='users'
@@ -24,7 +23,7 @@ export default async function UsersPage() {
             { key: 'created_at', label: 'Joined' },
           ]}
         />
-      </div>
+      </PageHeader>
       <UsersTable data={users} />
     </div>
   );

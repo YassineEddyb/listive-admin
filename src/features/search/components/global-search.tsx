@@ -122,7 +122,7 @@ export function GlobalSearch() {
         <Input
           ref={inputRef}
           placeholder='Search users, products, tickets... (⌘K)'
-          className='h-9 w-full rounded-lg border-brand-border/50 bg-white pl-9 pr-8 text-sm shadow-sm focus:border-brand focus:ring-1 focus:ring-brand/20'
+          className='h-11 w-full rounded-lg border-brand-border/50 bg-white pl-9 pr-8 text-sm shadow-sm focus:border-brand focus:ring-1 focus:ring-brand/20'
           value={query}
           onChange={(e) => handleSearch(e.target.value)}
           onFocus={() => setIsOpen(true)}

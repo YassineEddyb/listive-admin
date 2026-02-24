@@ -90,7 +90,7 @@ export function AdminSidebar() {
       </div>
 
       {/* Navigation */}
-      <nav className='flex-1 overflow-y-auto px-3 py-2'>
+      <nav className='flex-1 overflow-y-auto px-3 py-2 scrollbar-none'>
         {navigationSections.map((section, idx) => (
           <div key={section.label} className={cn(idx > 0 && 'mt-4')}>
             <p className='mb-1 px-3 text-[10px] font-semibold uppercase tracking-wider text-brand-gray/60'>

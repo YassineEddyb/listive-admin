@@ -12,12 +12,11 @@ export default async function ProductsPage() {
 
   return (
     <div className='space-y-6'>
-      <div className='flex items-center justify-between'>
-        <PageHeader
-          title='Products'
-          description={`${products.length} products · ${completedCount} completed`}
-          icon={Package}
-        />
+      <PageHeader
+        title='Products'
+        description={`${products.length} products · ${completedCount} completed`}
+        icon={Package}
+      >
         <ExportButton
           data={products as any}
           filename='products'
@@ -32,7 +31,7 @@ export default async function ProductsPage() {
             { key: 'created_at', label: 'Created' },
           ]}
         />
-      </div>
+      </PageHeader>
       <ProductTable data={products} />
     </div>
   );

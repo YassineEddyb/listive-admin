@@ -1,11 +1,9 @@
-import { ArrowLeft, Clock, CreditCard, Package, ShieldAlert, UserCircle } from 'lucide-react';
-import Link from 'next/link';
+import { Clock, CreditCard, Package, ShieldAlert, UserCircle } from 'lucide-react';
 import { notFound } from 'next/navigation';
 
 import { PageHeader } from '@/components/layout/page-header';
 import { StatusBadge } from '@/components/status-badge';
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { ROUTES } from '@/constants/routes';
@@ -49,18 +47,7 @@ export default async function UserDetailPage({ params }: UserDetailPageProps) {
 
   return (
     <div className='space-y-6'>
-      {/* Back link */}
-      <div>
-        <Button variant='ghost' size='sm' asChild>
-          <Link href={ROUTES.users}>
-            <ArrowLeft className='mr-1 h-4 w-4' />
-            Back to Users
-          </Link>
-        </Button>
-      </div>
-
-      <div className='flex items-start justify-between'>
-        <PageHeader title={user.full_name || user.email} description={user.email} icon={UserCircle} />
+      <PageHeader title={user.full_name || user.email} description={user.email} icon={UserCircle} backHref={ROUTES.users}>
         <div className='flex items-center gap-2'>
           <EditProfileDialog
             userId={user.user_id}
@@ -84,7 +71,7 @@ export default async function UserDetailPage({ params }: UserDetailPageProps) {
             isBanned={isBanned}
           />
         </div>
-      </div>
+      </PageHeader>
 
       {/* Ban Warning */}
       {isBanned && (
