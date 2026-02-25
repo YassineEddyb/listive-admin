@@ -46,5 +46,6 @@ export const ROUTES = {
   webhooks: '/admin/webhooks',
   system: '/admin/system',
   analytics: '/admin/analytics',
+  integrations: '/admin/integrations',
   settings: '/admin/settings',
 } as const;

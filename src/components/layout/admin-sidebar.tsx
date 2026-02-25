@@ -12,6 +12,7 @@ import {
   List,
   MessageSquare,
   Package,
+  Plug,
   ScrollText,
   Server,
   Settings,
@@ -59,6 +60,7 @@ const navigationSections: NavSection[] = [
     label: 'System',
     items: [
       { name: 'Webhooks', href: ROUTES.webhooks, icon: Webhook },
+      { name: 'Integrations', href: ROUTES.integrations, icon: Plug },
       { name: 'System Health', href: ROUTES.system, icon: Server },
       { name: 'Settings', href: ROUTES.settings, icon: Settings },
     ],
